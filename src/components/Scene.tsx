@@ -4,7 +4,7 @@ import { Canvas } from '@react-three/fiber'
 import React, { Suspense } from 'react'
 import Model from './Model'
 import { Center, OrbitControls, Text } from '@react-three/drei'
-import RayExample from './RayExample'
+import MainLoading from './MainLoading'
 
 function Scene() {
   return (
@@ -12,7 +12,7 @@ function Scene() {
     <Canvas camera={{ position: [0, 20, 50], fov: 60 }}>
 
         <directionalLight position={[5, 5, 5]} intensity={4} />
-        <Suspense fallback={null}>
+        <Suspense fallback={<MainLoading />}>
             <Center>
                 <Model />
                 {/* <RayExample /> */}
