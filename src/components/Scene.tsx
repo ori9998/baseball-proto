@@ -8,17 +8,18 @@ import MainLoading from './MainLoading'
 
 function Scene() {
   return (
-    <>
+    <>        
+    <Suspense fallback={<MainLoading />}>
+
     <Canvas camera={{ position: [0, 20, 50], fov: 60 }}>
 
         <directionalLight position={[5, 5, 5]} intensity={4} />
-        <Suspense fallback={<MainLoading />}>
             <Center>
                 <Model />
                 {/* <RayExample /> */}
             </Center>
             {/* <Ball /> */}
-        </Suspense>
+    
         <OrbitControls 
             target={[0, 0, 0]} 
             minPolarAngle={0}
@@ -27,6 +28,7 @@ function Scene() {
             maxDistance={100}
         />
     </Canvas>
+    </Suspense>
     </>
   )
 }
